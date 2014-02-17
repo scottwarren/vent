@@ -17,6 +17,10 @@
     "vents",
     "event"
   ],
+  "devDependencies": {
+    "istanbul": "*",
+    "coveralls": "*"
+  },
   "author": "Scott Warren",
   "license": "MIT",
   "bugs": {
