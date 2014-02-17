@@ -1,8 +1,9 @@
 vent
 ====
 
-very simple JS events
+Basic JS events
 
+[![Build Status](https://travis-ci.org/scottwarren/vent.png?branch=master)](https://travis-ci.org/scottwarren/vent)
 
 Usage:
 
