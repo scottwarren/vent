@@ -1,0 +1,25 @@
+{
+  "test": "tests.js",
+  "name": "vent",
+  "description": "Events for Javascript",
+  "version": "0.1.0",
+  "main": "vent.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/scottwarren/vent.git"
+  },
+  "keywords": [
+    "events",
+    "vent",
+    "vents",
+    "event"
+  ],
+  "author": "Scott Warren",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scottwarren/vent/issues"
+  }
+}

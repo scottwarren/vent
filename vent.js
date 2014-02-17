@@ -1,14 +1,61 @@
 var vent = {
+  /**
+   * contains all of the callbacks for all events, the key is the event name
+   * @type {Object}
+   */
   callbacks: {},
+
+  /**
+   * use this to bind an event
+   * @param  {string}   eventName name of the event
+   * @param  {function} callback  ran when eventName is triggered
+   * @return {object}             use this for an ID to unsubscribe with
+   */
   on: function(eventName, callback) {
-    if(!this.callbacks[eventName]) {
+
+    /* istanbul ignore else */
+    if(!this.hasEvent(eventName)) {
       this.callbacks[eventName] = [];
     }
     this.callbacks[eventName].push(callback);
+
+    // use this as an ID to unsubscribe
+    return { eventName: eventName, eventPosition: this.callbacks[eventName].length - 1 };
   },
+  /**
+   * checks whether an event is bound for eventName
+   * @param  {string} eventName name of the event
+   * @return {Boolean}          Boolean whether or not the event exists
+   */
+  hasEvent: function(eventName) {
+    return typeof this.callbacks[eventName] != 'undefined' && this.callbacks[eventName].length > 0;
+  },
+
+  /**
+   * used to unsubscribe a single event subscription
+   * @param  {object} eventToRemove object returned from vent.on
+   * @return {[type]}               [description]
+   */
+  off: function(eventToRemove) {
+    this.callbacks[eventToRemove.eventName].splice(eventToRemove.eventPosition, 1);
+  },
+
+  /**
+   * used to trigger an event, and all subscribed callbacks
+   * @param  {string} eventName name of the event to trigger
+   */
   trigger: function(eventName) {
+    if (!this.hasEvent(eventName)) {
+      throw new Error("No event bound for " + eventName);
+    }
     for (var i = this.callbacks[eventName].length - 1; i >= 0; i--) {
       this.callbacks[eventName][i]();
     }
   }
 };
+
+// added module export so if ran with node, you can load this with require('vent');
+/* istanbul ignore else */
+if (typeof module != 'undefined' && module.exports) {
+  module.exports = vent;
+}
