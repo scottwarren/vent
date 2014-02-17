@@ -1,7 +1,6 @@
+BIN = ./node_modules/.bin
+
 test-cov: istanbul
 
-istanbul:
-    istanbul cover _mocha -- -R spec test/spec
-
-coveralls:
-    cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+instanbul: lib
+    $(BIN)/istanbul instrument --output lib-cov --no-compact --variable global.__coverage__ lib
