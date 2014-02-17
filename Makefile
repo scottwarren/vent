@@ -1,6 +1,4 @@
-BIN = ./node_modules/.bin
+coverage: istanbul
 
-test-cov: istanbul
-
-instanbul: lib
-    $(BIN)/istanbul instrument --output lib-cov --no-compact --variable global.__coverage__ lib
+istanbul:
+	istanbul cover --report lcovonly test.js
