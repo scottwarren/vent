@@ -1,6 +1,6 @@
 {
   "test": "tests.js",
-  "name": "vent",
+  "name": "vent.js",
   "description": "Events for Javascript",
   "version": "0.1.0",
   "main": "vent.js",
