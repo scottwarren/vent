@@ -5,7 +5,7 @@ Basic JS events with no dependencies
 
 [![Build Status](https://travis-ci.org/scottwarren/vent.png?branch=master)](https://travis-ci.org/scottwarren/vent) [![Coverage Status](https://coveralls.io/repos/scottwarren/vent/badge.png?branch=master)](https://coveralls.io/r/scottwarren/vent?branch=master)
 
-**Installation:***
+**Installation:**
 
 `npm install vent.js`
 
