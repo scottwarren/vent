@@ -9,7 +9,7 @@ var vent = {
    * use this to bind an event
    * @param  {string}   eventName name of the event
    * @param  {function} callback  ran when eventName is triggered
-   * @return {object}             use this for an ID to unsubscribe with
+   * @return {Object}             use this for an ID to unsubscribe with
    */
   on: function(eventName, callback) {
 
@@ -34,7 +34,6 @@ var vent = {
   /**
    * used to unsubscribe a single event subscription
    * @param  {object} eventToRemove object returned from vent.on
-   * @return {[type]}               [description]
    */
   off: function(eventToRemove) {
     this.callbacks[eventToRemove.eventName].splice(eventToRemove.eventPosition, 1);
