@@ -46,12 +46,14 @@ var vent = {
   trigger: function(eventName) {
     // convert arguments into a 'real' array
     var args = Array.prototype.slice.call(arguments);
-    // remove the eventName arg from our new array
-    args.slice(1);
-    
+
+    // remove the eventName argument from our new array
+    args = args.slice(1);
+
     if (!this.hasEvent(eventName)) {
       throw new Error("No event bound for " + eventName);
     }
+
     for (var i = this.callbacks[eventName].length - 1; i >= 0; i--) {
       // Pass arguments from trigger method to the events' method
       this.callbacks[eventName][i].apply(this, args);
