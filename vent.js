@@ -61,8 +61,4 @@ var vent = {
   }
 };
 
-// added module export so if ran with node, you can load this with require('vent');
-/* istanbul ignore else */
-if (typeof module != 'undefined' && module.exports) {
-  module.exports = vent;
-}
+module.exports = vent;
