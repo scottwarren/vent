@@ -54,9 +54,12 @@ var vent = {
       throw new Error("No event bound for " + eventName);
     }
 
-    for (var i = this.callbacks[eventName].length - 1; i >= 0; i--) {
+    this.callbacks[eventName].map(eventName => {
       // Pass arguments from trigger method to the events' method
-      this.callbacks[eventName][i].apply(this, args);
+      eventName.apply(this, args);
+    }
+
+      
     }
   }
 };
