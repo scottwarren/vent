@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "main": "vent.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,9 @@
     "event"
   ],
   "devDependencies": {
+    "coveralls": "*",
     "istanbul": "*",
-    "coveralls": "*"
+    "jest": "^24.1.0"
   },
   "author": "Scott Warren",
   "license": "MIT",
