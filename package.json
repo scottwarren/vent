@@ -5,7 +5,10 @@
   "version": "0.1.0",
   "main": "vent.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "istanbul": "istanbul cover --report lcovonly vent.test.js",
+    "coveralls": "./coverage/lcov.info | coveralls",
+    "coverage": "npm run istanbull && npm run coveralls"
   },
   "repository": {
     "type": "git",
@@ -27,5 +30,6 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/scottwarren/vent/issues"
-  }
+  },
+  "dependencies": {}
 }

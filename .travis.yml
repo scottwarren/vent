@@ -2,5 +2,7 @@ language: node_js
 node_js:
   - "10.11.0"
 before_script: 'npm install -g istanbul'
-script: 'make istanbul'
-after_success: 'make coveralls'
+script:
+  - npm run test
+  - npm run istanbul
+  - npm run coveralls
