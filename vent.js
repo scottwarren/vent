@@ -57,7 +57,7 @@ var vent = {
     this.callbacks[eventName].map(eventName => {
       // Pass arguments from trigger method to the events' method
       eventName.apply(this, args);
-    }
+    })
 
       
     }
