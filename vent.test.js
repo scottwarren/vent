@@ -15,7 +15,7 @@ test('that no events are bound', () => {
 })
 
 test('that an error is thrown', () => {
-  expect(vent.trigger('test')).toThrowError(Error)
+  expect(() => vent.trigger('test')).toThrowError(Error)
 })
 
 test('that events are triggered', () => {
