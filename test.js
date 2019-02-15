@@ -1,8 +1,9 @@
-var assert = require('assert'),
-  vent = require('./vent.js'),
-  // this checks if an event is being run
-  hasMyTestRun = false,
-  test = [];
+const assert = require('assert')
+const vent = require('./vent')
+
+// This checks if an event has fired
+let hasMyTestRun = false
+let test = [];
 
 assert.equal(vent.hasEvent('test'), false, 'check that no events are bound');
 
