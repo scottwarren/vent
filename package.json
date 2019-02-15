@@ -20,7 +20,8 @@
   "devDependencies": {
     "coveralls": "*",
     "istanbul": "*",
-    "jest": "^24.1.0"
+    "jest": "^24.1.0",
+    "prettier": "^1.16.4"
   },
   "author": "Scott Warren",
   "license": "MIT",
