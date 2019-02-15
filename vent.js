@@ -14,15 +14,15 @@ var vent = {
   on: function(eventName, callback) {
     /* istanbul ignore else */
     if (!this.hasEvent(eventName)) {
-      this.callbacks[eventName] = [];
+      this.callbacks[eventName] = []
     }
-    this.callbacks[eventName].push(callback);
+    this.callbacks[eventName].push(callback)
 
     // use this as an ID to unsubscribe
     return {
       eventName: eventName,
-      eventPosition: this.callbacks[eventName].length - 1
-    };
+      eventPosition: this.callbacks[eventName].length - 1,
+    }
   },
   /**
    * checks whether an event is bound for eventName
@@ -31,9 +31,9 @@ var vent = {
    */
   hasEvent: function(eventName) {
     return (
-      typeof this.callbacks[eventName] != "undefined" &&
+      typeof this.callbacks[eventName] != 'undefined' &&
       this.callbacks[eventName].length > 0
-    );
+    )
   },
 
   /**
@@ -44,7 +44,7 @@ var vent = {
     this.callbacks[eventToRemove.eventName].splice(
       eventToRemove.eventPosition,
       1
-    );
+    )
   },
 
   /**
@@ -53,18 +53,18 @@ var vent = {
    */
   trigger: function(eventName) {
     // convert arguments into a 'real' array
-    var args = Array.prototype.slice.call(arguments);
+    var args = Array.prototype.slice.call(arguments)
 
     // remove the eventName argument from our new array
-    args = args.slice(1);
+    args = args.slice(1)
 
     if (!this.hasEvent(eventName)) {
-      throw new Error("No event bound for " + eventName);
+      throw new Error('No event bound for ' + eventName)
     }
 
     // Pass arguments from trigger method to the event's method
-    this.callbacks[eventName].map(eventName => eventName.apply(this, args));
-  }
-};
+    this.callbacks[eventName].map(eventName => eventName.apply(this, args))
+  },
+}
 
-module.exports = vent;
+module.exports = vent
