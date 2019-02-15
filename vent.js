@@ -12,15 +12,17 @@ var vent = {
    * @return {Object}             use this for an ID to unsubscribe with
    */
   on: function(eventName, callback) {
-
     /* istanbul ignore else */
-    if(!this.hasEvent(eventName)) {
+    if (!this.hasEvent(eventName)) {
       this.callbacks[eventName] = [];
     }
     this.callbacks[eventName].push(callback);
 
     // use this as an ID to unsubscribe
-    return { eventName: eventName, eventPosition: this.callbacks[eventName].length - 1 };
+    return {
+      eventName: eventName,
+      eventPosition: this.callbacks[eventName].length - 1
+    };
   },
   /**
    * checks whether an event is bound for eventName
@@ -28,7 +30,10 @@ var vent = {
    * @return {Boolean}          Boolean whether or not the event exists
    */
   hasEvent: function(eventName) {
-    return typeof this.callbacks[eventName] != 'undefined' && this.callbacks[eventName].length > 0;
+    return (
+      typeof this.callbacks[eventName] != "undefined" &&
+      this.callbacks[eventName].length > 0
+    );
   },
 
   /**
@@ -36,7 +41,10 @@ var vent = {
    * @param  {object} eventToRemove object returned from vent.on
    */
   off: function(eventToRemove) {
-    this.callbacks[eventToRemove.eventName].splice(eventToRemove.eventPosition, 1);
+    this.callbacks[eventToRemove.eventName].splice(
+      eventToRemove.eventPosition,
+      1
+    );
   },
 
   /**
@@ -55,8 +63,7 @@ var vent = {
     }
 
     // Pass arguments from trigger method to the event's method
-    this.callbacks[eventName].map(eventName => eventName.apply(this, args))
-
+    this.callbacks[eventName].map(eventName => eventName.apply(this, args));
   }
 };
 
